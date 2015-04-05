@@ -1,0 +1,29 @@
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) {
+  .weather_item {
+    display: inline-block;
+    width: 9%; } }
+
+section.container {
+  margin: 0 0;
+  text-align: center;
+  padding: 0 0; }
+
+#forecast_container h3 {
+  text-align: center; }
+
+#forecast_container {
+  display: inline-block; }
+
+.weather_item {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 5px 5px;
+  margin: 2px auto; }
+
+.weather_temp_max {
+  font-weight: bold;
+  color: #FF5700; }
+
+.weather_temp_min {
+  color: #00E2FF; }
