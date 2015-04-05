@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8'>
+	<title>weather</title>
+	<link rel='stylesheet' href='main.css'>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js'></script>
+</head>
+<body>
+
+
+	<section class='container'>
+		<div id='forecast_container'>
+			<div id='placeholder'>
+				<h3>Hold up while I fetch your weather</h3>
+				<img src='images/loading.gif' />
+			</div>
+		</div>
+	</section>
+
+	<script src='main.js'></script>
+	<script type='text/template' id='forecast_template'>
+	<div id="weather_city">
+		<h3><%= city.name %> for the next 10 days:</h3></div>
+		<% var day = new Date(); %>
+		<% var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; %>
+		<% var month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Spetember', 'October', 'November'] %>
+		<% _.each(this.model.list, function(item, i){%>
+			<div class="weather_item">
+				<%  // increment day/date value if it is after today
+					if (i === 0) { 
+						day.setDate(day.getDate());
+					} else {
+						day.setDate(day.getDate() + 1);
+					} 
+				%>
+				<div>
+					<%= days[day.getDay()] + ' ' + month[day.getMonth()] + ', ' + day.getDate() %>
+				</div>
+				<div class='weather_condition'><strong>
+					<%= item.weather[0].main %></strong>
+				</div>
+				<div class='weather_temp_max'> 
+					<%= Math.round(item.temp.max) %>
+				</div>
+				<div class='weather_temp_min'>
+					<%= Math.round(item.temp.min) %>
+				</div>
+				<div class='weather_humidity'>
+					<%= item.humidity %>% humidity
+				</div>
+				<div class='weather_pressure'>
+					<%= item.pressure %>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+	</script>
+</body>
+</html>
