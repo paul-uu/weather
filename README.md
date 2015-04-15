@@ -1,6 +1,6 @@
 # weather
 
-Simple weather app, using the openweathermap api, geolocation, and a backbone.js view.
+Simple weather web-app, using the openweathermap api, geolocation, ajax, and a backbone.js view.
 
 1. Determine the user's location using the geolocation api
 2. Use the location coordinates to make an ajax get request to the openweather api
