@@ -26,7 +26,6 @@ $(function() {
 	var forecast_data;
 
 
-
 	/* =================================================================== */
 	/* Use location coordinates to fetch weather forcast for that location */
 	function get_weather_data(lat, lon) {
@@ -56,7 +55,6 @@ $(function() {
 	}
 	
 
-
 	/* ========================================= */
 	/* Render weather data using a backbone view */
 	function go_backbone(data) {
@@ -79,12 +77,10 @@ $(function() {
 	}
 
 
-
-
 	/* ==================== */
 	/* Misc. Event Handlers */
 
-	/* animate extra weather info */
+	// add class 'mobile' to .weather_item elements
 	$(window).resize(function() {
 		responsive_box_height();
 	});
@@ -92,29 +88,44 @@ $(function() {
 		if ( ($(window).width()) < 1160 ) {
 			$('.weather_item').addClass('mobile');
 		} else {
-			$('.weather_item').removeClass('mobile')
+			$('.weather_item').removeClass('mobile');
 		}
 	}
 
+	/* animate extra weather info */
 	$('body').on('click', '.weather_item', function() {
-
 		var el = $(this);
-
-		// hide/animate up
-		if (el.hasClass('reveal')) {
-			if (el.hasClass('mobile')) {
-				el.animate({'height':'125px'}, 700);
-			}
-			el.children('.weather_extra').animate({'top':'0'}, 400);
-
-		// reveal/animate down
-		} else {
-			if (el.hasClass('mobile')) {
-				el.animate({'height':'250px'}, 400);
-			}
-			el.children('.weather_extra').css('display','inline').animate({'top':'125px'}, 700);
-		}
-		el.toggleClass('reveal');
+		toggle_weather(el);
 	});
+	$('body').on('click', '#hide_all', function() {
+		hide_all();
+	});
+	$('body').on('click', '#show_all', function() {
+		show_all();
+	});
+	function toggle_weather(element) {
+		if (element.hasClass('reveal')) {
+			if (element.hasClass('mobile')) {
+				element.animate({'height':'125px'}, 700);
+			}
+			element.children('.weather_extra').animate({'top':'0'}, 400);
+		} else {
+			if (element.hasClass('mobile')) {
+				element.animate({'height':'250px'});
+			}
+			element.children('.weather_extra').animate({'top':'125px'}, 700);
+		}
+		element.toggleClass('reveal');
+	}
+	function show_all() {
+		var els = $('.weather_item');
+		els.removeClass('reveal');
+		toggle_weather(els);
+	}
+	function hide_all() {
+		var els = $('.weather_item');
+		els.addClass('reveal');
+		toggle_weather(els);
+	}
 });
 
