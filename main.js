@@ -97,12 +97,8 @@ $(function() {
 		var el = $(this);
 		toggle_weather(el);
 	});
-	$('body').on('click', '#hide_all', function() {
-		hide_all();
-	});
-	$('body').on('click', '#show_all', function() {
-		show_all();
-	});
+	$('body').on('click', '#hide_all', hide_all() );
+	$('body').on('click', '#show_all', show_all() );
 	
 	
 	function toggle_weather(element) {
