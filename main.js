@@ -103,6 +103,8 @@ $(function() {
 	$('body').on('click', '#show_all', function() {
 		show_all();
 	});
+	
+	
 	function toggle_weather(element) {
 		if (element.hasClass('reveal')) {
 			if (element.hasClass('mobile')) {
