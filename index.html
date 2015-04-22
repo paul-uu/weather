@@ -25,6 +25,10 @@
 	<script src='main.js'></script>
 	<script type='text/template' id='forecast_template'>
 		<div id="weather_city"><h3><%= city.name %> for the next 10 days:</h3></div>
+		<div id='controls'>
+			<span id='hide_all'>-</span>
+			<span id='show_all'>+</span>
+		</div>
 		
 		<% var day = new Date(); %>
 		<% var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; %>
@@ -55,7 +59,7 @@
 				<div class='weather_extra'>
 					<div class="weather_humidity">Humidity: <%= item.humidity %>%</div>
 					<div class="weather_pressure">Pressure: <%= item.pressure %></div>
-					<div class="weather_wind_speed">Wind Speed: <%= item.speed %></div>
+					<div class="weather_wind_speed">Wind Speed: <%= item.speed %> mph</div>
 					<div class="weather_rain">Rain: <%= item.rain %> mm</div>
 				</div>
 				
