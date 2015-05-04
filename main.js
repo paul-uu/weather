@@ -1,7 +1,7 @@
 var app = app || {},
-	day = new Date(), 
-	days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],	
-	month = ['January','February','March','April','May','June','July','August','Spetember','October','November'];
+    day = new Date(), 
+    days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],	
+    month = ['January','February','March','April','May','June','July','August','Spetember','October','November'];
 
 
 $(function() {
