@@ -22,51 +22,34 @@
 		</div>
 	</section>
 
-	<script src='main.js'></script>
+
+
+	<!-- Underscore Templates -->
+	<script type='text/template' id='weather_template'>
+		<div class='weather_main'>
+
+			<div class='weather_basic'>
+				<div class="weather_condition"><%= attributes.weather[0].main %></div>
+				<div class="weather_temp_max"><%= Math.round(attributes.temp.max) %></div>
+				<div class="weather_temp_min"><%= Math.round(attributes.temp.min) %></div>
+			</div>
+		</div>
+		<div class='weather_extra'>
+			<div class="weather_humidity">Humidity: <%= attributes.humidity %>%</div>
+			<div class="weather_pressure">Pressure: <%= attributes.pressure %></div>
+			<div class="weather_wind_speed">Wind Speed: <%= attributes.speed %> mph</div>
+			<div class="weather_rain">Rain: <%= attributes.rain %> mm</div>
+		</div>
+	</script>
+
 	<script type='text/template' id='forecast_template'>
-		<div id="weather_city"><h3><%= city.name %> for the next 10 days:</h3></div>
+		<div id="weather_city"><h3><%= city %> for the next 10 days:</h3></div>
 		<div id='controls'>
 			<span id='hide_all'>-</span>
 			<span id='show_all'>+</span>
 		</div>
-		
-		<% var day = new Date(); %>
-		<% var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; %>
-		<% var month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Spetember', 'October', 'November'] %>
-		
-		<% _.each(this.model.list, function(item, i){%>
-		
-		
-			<div class="weather_item">
-			
-				<%  if (i === 0) { day.setDate(day.getDate());}
-					else { day.setDate(day.getDate() + 1); } %>
-				
-				<div class='weather_main'>
-
-					<div class='weather_date' style="float:left;">
-						<span><%= month[day.getMonth()] + " " + day.getDate() %></span><br>
-						<span><%= days[day.getDay()] %></span>
-					</div>
-
-					<div class='weather_basic'>
-						<div class="weather_condition"><%= item.weather[0].main %></div>
-						<div class="weather_temp_max"><%= Math.round(item.temp.max) %></div>
-						<div class="weather_temp_min"><%= Math.round(item.temp.min) %></div>
-					</div>
-				</div>
-				
-				<div class='weather_extra'>
-					<div class="weather_humidity">Humidity: <%= item.humidity %>%</div>
-					<div class="weather_pressure">Pressure: <%= item.pressure %></div>
-					<div class="weather_wind_speed">Wind Speed: <%= item.speed %> mph</div>
-					<div class="weather_rain">Rain: <%= item.rain %> mm</div>
-				</div>
-				
-			</div>
-			
-		<% }); %>
-		
 	</script>
+	<script src='main.js'></script>	
+
 </body>
 </html>
