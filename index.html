@@ -29,16 +29,16 @@
 		<div class='weather_main'>
 
 			<div class='weather_basic'>
-				<div class="weather_condition"><%= attributes.weather[0].main %></div>
-				<div class="weather_temp_max"><%= Math.round(attributes.temp.max) %></div>
-				<div class="weather_temp_min"><%= Math.round(attributes.temp.min) %></div>
+				<div class="weather_condition"><%= attributes.day.condition.text %></div>
+				<div class="weather_temp_max"><%= Math.round(attributes.day.maxtemp_f) %></div>
+				<div class="weather_temp_min"><%= Math.round(attributes.day.mintemp_f) %></div>
 			</div>
 		</div>
 		<div class='weather_extra'>
 			<div class="weather_humidity">Humidity: <%= attributes.humidity %>%</div>
 			<div class="weather_pressure">Pressure: <%= attributes.pressure %></div>
-			<div class="weather_wind_speed">Wind Speed: <%= attributes.speed %> mph</div>
-			<div class="weather_rain">Rain: <%= attributes.rain %> mm</div>
+			<div class="weather_wind_speed">Wind Speed: <%= attributes.day.maxwind_mph %> mph</div>
+			<div class="weather_rain">Rain: <%= attributes.day.totalprecip_mm %> mm</div>
 		</div>
 	</script>
 

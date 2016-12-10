@@ -33,12 +33,11 @@ $(function() {
 	/* =================================================================== */
 	/* Use location coordinates to fetch weather forcast for that location */
 	function get_weather_data(lat, lon) {
-		var url = 'api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&cnt=10&mode=json&units=imperial&type=accurate';
+		var url = 'https://api.apixu.com/v1/forecast.json?key=bbd73b10b32b41ccb1722924161012&q=' + lat + ',' + lon + '&days=10';
 		$.ajax({
 			url: url,
 			type: 'get',
 			CrossDomain: true,
-			dataType: 'jsonp',
 			success: function(data) {
 
 				// hide placeholder text/gif
@@ -46,6 +45,7 @@ $(function() {
 
 				// initialize backbone functionality
 				go_backbone(data);
+				console.log(data);
 			},
 			error: function(xhr) {
 				console.log('AJAX ERROR: ' + xhr.responseText);
@@ -119,8 +119,8 @@ $(function() {
 			template: _.template( $('#forecast_template').html() ),
 			initialize: function(data) {
 				
-				this.collection = new app.Forecast(data.list);
-				var city_name = data.city.name;
+				this.collection = new app.Forecast(data.forecast.forecastday);
+				var city_name = data.location.name;
 				this.render(city_name);
 			},
 			render: function(city_name) {
@@ -188,6 +188,10 @@ $(function() {
 		} else {
 			day.setDate(day.getDate() + 1);
 		}
+		var month_index = day.getMonth();
+		console.log(typeof month_index);
+
+		console.log( month[month_index] );
 		return "<div class='weather_date' style='float:left;'><span>" + month[day.getMonth()] + " " + day.getDate() + "</span><br><span>" + days[day.getDay()] + "</span></div>";
 	}
 
