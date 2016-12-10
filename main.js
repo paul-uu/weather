@@ -28,20 +28,18 @@ $(function() {
 	function error() {
 		console.log('ERROR: Geolocation error. Make sure that location sharing is enabled on your device!');
 	}
-	var forecast_data;
 
 
 	/* =================================================================== */
 	/* Use location coordinates to fetch weather forcast for that location */
 	function get_weather_data(lat, lon) {
-		var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&cnt=10&mode=json&units=imperial&type=accurate';
+		var url = 'api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&cnt=10&mode=json&units=imperial&type=accurate';
 		$.ajax({
 			url: url,
 			type: 'get',
 			CrossDomain: true,
 			dataType: 'jsonp',
 			success: function(data) {
-				forecast_data = data;
 
 				// hide placeholder text/gif
 				$("#forecast_container").html('');

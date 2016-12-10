@@ -7,4 +7,4 @@ Simple weather web-app, using the openweathermap api, geolocation, ajax, and a b
 3. Pass the jsonp data as a model into a backbone view
 4. Render the data using underscore.js' template engine
 
-[demo](http://paulwittschen.com/mini-projects/weather/)
+[demo](https://paul-uu.github.io/weather/)
