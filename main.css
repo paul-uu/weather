@@ -45,8 +45,7 @@ p.error_message {
 .weather_item {
 	
 	border-radius: 3px;
-	display: inline-block;
-	width: 9.8%;
+	width: 10%;
 	height: 125px;
 	cursor: pointer;
 	position: relative;
@@ -59,6 +58,12 @@ p.error_message {
 	float: left;
 	font-weight: 200;
 	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+.weather_date .date {
+	white-space: nowrap;
+	font-size: 16px;
+	color: #999;
 }
 .weather_basic {
 	clear:both;

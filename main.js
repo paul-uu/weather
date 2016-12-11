@@ -1,14 +1,14 @@
 var app = app || {},
-    day = new Date(), 
-    days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],	
-    month = ['January','February','March','April','May','June','July','August','Spetember','October','November'];
+    day = new Date();
+const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],	
+      month = ['January','February','March','April','May','June','July','August','Spetember','October','November', 'December'];
 
 
 $(function() {
 
 	/* ============================================ */
 	/* Use Geolocation to get the client's location */
-	var latitude, longitude;
+	let latitude, longitude;
 	if (!navigator.geolocation) {
 		console.log('ERROR: Geolocation capabilities are not available');
 	} else {
@@ -22,18 +22,18 @@ $(function() {
 	function success(position) {
 		latitude = position.coords.latitude;
 		longitude = position.coords.longitude;
-		console.log('Lat: ' + latitude + ' --- Lon: ' + longitude);
 		get_weather_data(latitude, longitude);
 	}
 	function error() {
 		console.log('ERROR: Geolocation error. Make sure that location sharing is enabled on your device!');
+		render_error("geolocation");
 	}
 
 
 	/* =================================================================== */
 	/* Use location coordinates to fetch weather forcast for that location */
 	function get_weather_data(lat, lon) {
-		var url = 'https://api.apixu.com/v1/forecast.json?key=bbd73b10b32b41ccb1722924161012&q=' + lat + ',' + lon + '&days=10';
+		let url = 'https://api.apixu.com/v1/forecast.json?key=bbd73b10b32b41ccb1722924161012&q=' + lat + ',' + lon + '&days=10';
 		$.ajax({
 			url: url,
 			type: 'get',
@@ -45,18 +45,28 @@ $(function() {
 
 				// initialize backbone functionality
 				go_backbone(data);
-				console.log(data);
 			},
 			error: function(xhr) {
 				console.log('AJAX ERROR: ' + xhr.responseText);
-				$("#forecast_container").html("<p class='error_message'>There's an issue getting the weather. <a id='reload'>Try again</a></p>");
-				$("#reload").on('click', function() {
-					document.location.reload(true);
-				});
+				render_error("ajax");
 			}
 		});
 	}
 	
+	function render_error(err_type) {
+		let error_string = "";
+		switch (err_type) {
+			case "geolcation":	
+				error_string = "Unable to retreive your location. Please make sure that location sharing is enabled on your device!"
+				break;
+			case "ajax":
+				error_string = "There's an issue getting your weather data.";
+		}
+		$("#forecast_container").html("<p class='error_message'>" + error_string + "<a id='reload'>Try again</a></p>");
+		$("#reload").on('click', function() {
+			document.location.reload(true);
+		});
+	}
 
 	/* ========================================= */
 	/* Render weather data using a backbone view */
@@ -88,7 +98,7 @@ $(function() {
 			// collection
 			render: function(index) {
 				if (index >= 0) {
-					var date_html = return_date(index);
+					let date_html = return_date(index);
 					this.$el.html( this.template(this.model) );
 					this.$el.find('.weather_main').prepend(date_html);
 					return this;
@@ -97,7 +107,7 @@ $(function() {
 
 			// Events for weather view
 			show_hide: function() {
-				var weather_el = this.$el;
+				let weather_el = this.$el;
 				if (weather_el.hasClass('reveal')) {
 					if (weather_el.hasClass('mobile')) {
 						weather_el.animate({'height':'125px'}, 700);
@@ -120,7 +130,7 @@ $(function() {
 			initialize: function(data) {
 				
 				this.collection = new app.Forecast(data.forecast.forecastday);
-				var city_name = data.location.name;
+				let city_name = data.location.name;
 				this.render(city_name);
 			},
 			render: function(city_name) {
@@ -130,7 +140,7 @@ $(function() {
 				// place city_name into an object for the collection
 				// template to read from -- simply passing the template
 				// the city_name as a string will not work; expects obj
-				var city_obj = {
+				let city_obj = {
 					"city":city_name
 				};
 
@@ -146,7 +156,7 @@ $(function() {
 			},
 			renderItem: function(model, i) {
 
-				var modelView = new app.Weather_View({
+				let modelView = new app.Weather_View({
 					model: model
 				});
 				this.$el.append( modelView.render(i).el );
@@ -188,11 +198,8 @@ $(function() {
 		} else {
 			day.setDate(day.getDate() + 1);
 		}
-		var month_index = day.getMonth();
-		console.log(typeof month_index);
-
-		console.log( month[month_index] );
-		return "<div class='weather_date' style='float:left;'><span>" + month[day.getMonth()] + " " + day.getDate() + "</span><br><span>" + days[day.getDay()] + "</span></div>";
+		let month_index = day.getMonth();
+		return "<div class='weather_date' style='float:left;'><span class='date'>" + month[day.getMonth()] + " " + day.getDate() + "</span><br><span class='day'>" + days[day.getDay()] + "</span></div>";
 	}
 
 
@@ -219,12 +226,12 @@ $(function() {
 		element.toggleClass('reveal');
 	}
 	function show_all() {
-		var els = $('.weather_item');
+		let els = $('.weather_item');
 		els.removeClass('reveal');
 		toggle_weather(els);
 	}
 	function hide_all() {
-		var els = $('.weather_item');
+		let els = $('.weather_item');
 		els.addClass('reveal');
 		toggle_weather(els);
 	}
