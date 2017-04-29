@@ -19,24 +19,24 @@ p.error_message {
 	text-align: center;
 }
 
-#weather_city {
+.weather_city {
 	text-align: center;
 }
-#weather_city > h3 {
+.weather_city > h3 {
 	margin-bottom: 0;
 }
-#controls {
+.controls {
 	text-align: center;
 
 }
-#show_all, #hide_all {
+.show_all, .hide_all {
 	cursor: pointer;
 	font-size: 32px;
 }
-#hide_all {
+.hide_all {
 	margin-right: 15px;
 }
-#show_all {
+.show_all {
 	margin-left: 15px;
 }
 
@@ -46,7 +46,7 @@ p.error_message {
 	
 	border-radius: 3px;
 	width: 10%;
-	height: 125px;
+	min-height: 1px;
 	cursor: pointer;
 	position: relative;
 	float: left;
@@ -58,7 +58,7 @@ p.error_message {
 	float: left;
 	font-weight: 200;
 	font-size: 1.2em;
-	margin-bottom: 10px;
+	margin-bottom: .5em;
 }
 .weather_date .date {
 	white-space: nowrap;
@@ -70,6 +70,7 @@ p.error_message {
 }
 .weather_temp_max {
 	color: #FF5700; 
+	margin-right: .25em;
 }
 .weather_temp_min {
 	color: #00E2FF; 
@@ -80,12 +81,17 @@ p.error_message {
 	font-size: 2em;
 }
 
+.weather_condition {
+	line-height: 1em;
+	min-height: 2em;
+	margin-bottom: .5em;
+}
+
 .weather_main, .weather_extra {
 	position: absolute;
 	padding: 10px 10px;
 	box-sizing: border-box;
 	width: 100%;
-	height: 125px;
 	top: 0;
 	left: 0;
 }
@@ -94,7 +100,7 @@ p.error_message {
 	display: inline-block;	
 	z-index: 10;
 	background-color: white;
-	border-left: 1px solid #ddd;	
+	border-left: 1px solid #eee;	
 }
 .weather_main:hover {
 	background-color: #eeeeee;
@@ -102,13 +108,21 @@ p.error_message {
 .weather_extra {
 	display: inline-block;	
 	background-color: white;
-	border-bottom: 1px solid #ddd;
 	z-index: 1;
 	font-size: 0.9em;
 	font-weight: 200;
+	position: absolute;
+	top: 0;
+	transition: top 0.5s;
+}
+.weather_extra.collapsed {
+	top: 0;
+}
+.weather_extra.expanded {
+	top: 155px;
 }
 
-@media (max-width: 1160px) {
+@media (max-width: 991px) {
 	
 	.weather_item {
 		border-top: 1px solid #666;
