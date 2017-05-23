@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/paul-uu/weather#readme",
   "dependencies": {
+    "c3": "^0.4.11",
+    "d3": "^4.9.1",
     "jquery": "^3.2.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"

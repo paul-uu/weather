@@ -5,6 +5,11 @@ body {
 	padding: 0 0;
 	box-sizing: border-box;
 }
+
+.clear {
+	clear: both !important;
+}
+
 p.error_message {
 	text-align: center;
 	margin-top: 8%;
@@ -120,6 +125,14 @@ p.error_message {
 }
 .weather_extra.expanded {
 	top: 155px;
+}
+
+
+.forecast_detail {
+	margin-top: 175px;
+}
+.detailHeader {
+	text-align: center;
 }
 
 @media (max-width: 991px) {

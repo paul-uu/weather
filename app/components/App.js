@@ -1,7 +1,6 @@
 var React = require('react');
 var $ = require('jquery');
 var Header = require('./Header');
-var Controls = require('./Controls');
 var ForecastWeek = require('./ForecastWeek');
 
 class App extends React.Component {
@@ -9,8 +8,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            forecastArray: [],
-            expanded: 'collapsed'
+            forecastArray: []
         }
         const that = this;
 
@@ -45,35 +43,17 @@ class App extends React.Component {
                     console.log(xhr);
                 }
             });
-
         }
         function error() {
             console.log('error: geolocation error. Make sure that location sharing is enabled on your device!');
         }        
     }
 
-    expandAll() {
-        this.setState({
-           expanded: 'expanded' 
-        });
-    }
-    collapseAll() {
-        this.setState({
-            expanded: 'collapsed'
-        });
-    }
-
     render() {
         return (
             <div>
-                <Header 
-                    location={this.state.location} />
-                <Controls 
-                    expandClick={this.expandAll.bind(this)}
-                    collapseClick={this.collapseAll.bind(this)}  />
-                <ForecastWeek 
-                    forecastArray={this.state.forecastArray} 
-                    expanded={this.state.expanded}/>
+                <Header location={this.state.location} />
+                <ForecastWeek forecastArray={this.state.forecastArray} />
             </div>
         );
     }
