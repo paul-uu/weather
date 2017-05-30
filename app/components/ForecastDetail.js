@@ -4,34 +4,45 @@ var c3 = require('c3');
 
 class ForecastDetail extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.chartLabels = {
+            temp_f: "Temperature F",
+            humidity: "Humidity %",
+            cloud: "Cloud Cover %",
+            wind_mph: "Wind MPH"
+        }
+    }
+
     componentDidUpdate() {
+        let self = this;
+
         if (this.props.detailWeather) {
 
             let hourlyWeather = this.props.detailWeather;
-            let tempArray = this.getTemperatureArray(hourlyWeather);
-            tempArray.unshift('Temperature');      
+            let weatherPropertiesArray = ['temp_f', 'humidity', 'wind_mph', 'cloud'];
+            let weatherArrays = [];
+            weatherPropertiesArray.forEach(function(property) {
+                if (hourlyWeather[0].hasOwnProperty(property)) {
+                    let weatherArray = [];
+                    for (let i = 0; i < hourlyWeather.length; i++) {
+                        weatherArray.push(hourlyWeather[i][property]);
+                    }
+                    weatherArray.unshift(self.chartLabels[property]);
+                    weatherArrays.push(weatherArray);
+                }
+            });
+
             var chart = c3.generate({
                 bindto: '.detailChart',
                 data: {
-                    columns: [
-                        tempArray
-                    ]
+                    columns: weatherArrays
                 }
             });
         }
     }
     
-    objDataToArray(objProperties) {
-    }
-
-    getTemperatureArray(weather) {
-        let tempArray = [];
-        for (var i = 0; i < weather.length; i++) {
-            tempArray.push( weather[i].temp_f )
-        }
-        return tempArray;
-    }
-
     render() {
         let hourlyWeather = this.props.detailWeather;
         if (hourlyWeather) {
