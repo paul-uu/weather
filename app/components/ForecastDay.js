@@ -20,9 +20,11 @@ class ForecastDay extends React.Component {
         let date = months[d.getUTCMonth()] + ' ' + d.getUTCDate();
         let self = this;
 
+        let isSelected = this.props.selected ? 'weather_main selected' : 'weather_main';
+
         return (
             <div className='weather_item' onClick={this.currentDayClick.bind( self, weather.date )}>
-                <div className='weather_main'>
+                <div className={isSelected}>
                     <div className='weather_date' style={dateStyle}>
                         <span className='date'>{date}</span><br />
                         <span className='day'>{day}</span>

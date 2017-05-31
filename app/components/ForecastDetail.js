@@ -21,8 +21,9 @@ class ForecastDetail extends React.Component {
         if (this.props.detailWeather) {
 
             let hourlyWeather = this.props.detailWeather;
-            let weatherPropertiesArray = ['temp_f', 'humidity', 'wind_mph', 'cloud'];
+            let weatherPropertiesArray = ['temp_f', 'humidity', 'wind_mph', 'cloud', 'precip_in'];
             let weatherArrays = [];
+
             weatherPropertiesArray.forEach(function(property) {
                 if (hourlyWeather[0].hasOwnProperty(property)) {
                     let weatherArray = [];
@@ -37,7 +38,8 @@ class ForecastDetail extends React.Component {
             var chart = c3.generate({
                 bindto: '.detailChart',
                 data: {
-                    columns: weatherArrays
+                    columns: weatherArrays,
+                    type: 'spline'
                 }
             });
         }
@@ -50,7 +52,7 @@ class ForecastDetail extends React.Component {
             return (
                 <div className='forecast_detail'>
                     <div className="detailHeader">
-                        <span>hourly weather for:&nbsp;</span>
+                        <span>hourly weather for&nbsp;</span>
                         <span>{this.props.currentDetailDay}</span>
                     </div>
                     

@@ -104,12 +104,16 @@ p.error_message {
 .weather_main {
 	display: inline-block;	
 	z-index: 10;
-	background-color: white;
+	background-color: #eee;
 	border-left: 1px solid #eee;	
 }
 .weather_main:hover {
-	background-color: #eeeeee;
+	background-color: #e8e8e8;
 }
+.weather_main.selected {
+	background-color: white;
+}
+
 .weather_extra {
 	display: inline-block;	
 	background-color: white;
