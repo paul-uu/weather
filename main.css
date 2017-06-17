@@ -135,7 +135,8 @@ p.error_message {
 .forecast_detail {
 	margin-top: 175px;
 }
-.detailHeader {
+.detailHeader,
+.detailCheckboxes {
 	text-align: center;
 }
 
