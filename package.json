@@ -1,7 +1,7 @@
 {
   "name": "weather",
   "version": "1.0.0",
-  "description": "Simple weather web-app, using the openweathermap api, geolocation, ajax, and a backbone.js view.",
+  "description": "A simple web app to show you your weather",
   "main": "app/index.js",
   "scripts": {
     "build": "webpack",
@@ -28,7 +28,11 @@
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.4",
     "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.4"
   }
