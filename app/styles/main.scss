@@ -2,7 +2,7 @@
 @import 'base/_normalize.scss';
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family:$helevetica-neue;
 	color: #666;
 	margin: 0 0;
 	padding: 0 0;
@@ -37,7 +37,8 @@ p.error_message {
 	text-align: center;
 
 }
-.show_all, .hide_all {
+.show_all, 
+.hide_all {
 	cursor: pointer;
 	font-size: 32px;
 }
@@ -58,35 +59,42 @@ p.error_message {
 	cursor: pointer;
 	position: relative;
 	float: left;
-}
-.weather_item:hover {
-	background-color: #eeeeee;
-}
-.weather_date {
-	float: left;
-	font-weight: 200;
-	font-size: 1.2em;
-	margin-bottom: .5em;
-}
-.weather_date .date {
-	white-space: nowrap;
-	font-size: 16px;
-	color: #999;
-}
-.weather_basic {
-	clear:both;
-}
-.weather_temp_max {
-	color: #FF5700; 
-	margin-right: .25em;
-}
-.weather_temp_min {
-	color: #00E2FF; 
-}
-.weather_temp_min, .weather_temp_max {
-	display: inline-block;
-	font-weight: 100;
-	font-size: 2em;
+
+    &:hover {
+        background-color: #eee;
+    }
+
+    .weather_date {
+        float: left;
+        font-weight: 200;
+        font-size: 1.2em;
+        margin-bottom: .5em;
+
+        .date {
+            white-space: nowrap;
+            font-size: 16px;
+            color: #999;
+        }
+    }
+
+    .weather_basic {
+        clear: both;
+
+        .weather_temp_max,
+        .weather_temp_min {
+            display: inline-block;
+            font-weight: 100;
+            font-size: 2em;
+        }
+        
+        .weather_temp_max {
+            color: $orange;
+            margin-right: 0.25em;
+        }
+        .weather_temp_min {
+            color: $blue;
+        }
+    }
 }
 
 .weather_condition {
@@ -95,7 +103,8 @@ p.error_message {
 	margin-bottom: .5em;
 }
 
-.weather_main, .weather_extra {
+.weather_main, 
+.weather_extra {
 	position: absolute;
 	padding: 10px 10px;
 	box-sizing: border-box;
@@ -166,4 +175,3 @@ p.error_message {
 		font-size: 1.25em;
 	}
 }
-
