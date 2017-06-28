@@ -46,13 +46,39 @@ class App extends React.Component {
         }
         function error() {
             console.log('error: geolocation error. Make sure that location sharing is enabled on your device!');
-        }        
+        }    
+    }
+
+    getLocation(location) {
+        this.returnWeatherData(location);
+    }
+
+    returnWeatherData(location) {
+
+        /* format location to fit url correctly */
+
+        let self = this;
+        let url = 'https://api.apixu.com/v1/forecast.json?key=bbd73b10b32b41ccb1722924161012&q=' + location + '&days=10';
+        $.ajax({
+            url: url,
+            type: 'get',
+            CrossDomain: true,
+            success: function(json) {
+                this.setState({
+                    forecastArray: json.forecast.forecastday,
+                    location: json.location.name
+                })
+            }.bind(self),
+            error: function(xhr) {
+                console.log(xhr);
+            }   
+        })
     }
 
     render() {
         return (
             <div>
-                <Header location={this.state.location} />
+                <Header getLocation={this.getLocation.bind(this)} location={this.state.location} />
                 <ForecastWeek forecastArray={this.state.forecastArray} />
             </div>
         );
