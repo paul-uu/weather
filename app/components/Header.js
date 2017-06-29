@@ -28,7 +28,9 @@ export default class Header extends React.Component {
                 });
         }
         function success(position) {
-            self.props.getLocation(position);
+            let lat = position.coords.latitude,
+                lon = position.coords.longitude;
+            self.props.getLocation(lat.toString() + ',' + lon.toString());
         }
         function error() {
             console.log('error: geolocation error. Make sure that location sharing is enabled on your device!');

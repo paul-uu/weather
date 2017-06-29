@@ -12,15 +12,14 @@ export default class LocationSearch extends React.Component {
     }
 
     returnZipCode() {
-        let zipCode = parseInt(this.state.zipCode, 10);
-        if ( this.isValidZipCode(zipCode) )
-            this.props.onClick(zipCode);
+        if (this.isValidZipCode( this.state.zipCode )) {
+            this.props.onClick(this.state.zipCode);
+        }
     }
 
     isValidZipCode(zipCode) {
-        if ((typeof zipCode === 'number') && (zipCode.toString().length === 5)) {
+        if ( zipCode.length === 5 && (typeof parseInt(zipCode, 10) === 'number') )
             return true;
-        }    
     }
 
     handleInputChange(e) {
