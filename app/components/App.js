@@ -1,9 +1,9 @@
-var React = require('react');
-var $ = require('jquery');
-var Header = require('./Header');
-var ForecastWeek = require('./ForecastWeek');
+import React from 'react';
+import $ from 'jquery';
+import Header from './Header';
+import ForecastWeek from './ForecastWeek';
 
-class App extends React.Component {
+export default class App extends React.Component {
 
     constructor(props) {
         super(props);
@@ -84,5 +84,3 @@ class App extends React.Component {
         );
     }
 }
-
-module.exports = App;

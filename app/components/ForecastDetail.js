@@ -1,8 +1,8 @@
-var React = require('react');
-var Checkbox = require('./Checkbox');
-var Chart = require('./Chart');
+import React from 'react';
+import Checkbox from './Checkbox';
+import Chart from './Chart';
 
-class ForecastDetail extends React.Component {
+export default class ForecastDetail extends React.Component {
 
     constructor(props) {
         super(props);
@@ -149,5 +149,3 @@ class ForecastDetail extends React.Component {
         }
     }
 }
-
-module.exports = ForecastDetail;

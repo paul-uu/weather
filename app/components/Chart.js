@@ -1,8 +1,8 @@
-var React = require('react');
-var d3 = require('d3');
-var c3 = require('c3');
+import React from 'react';
+import d3 from 'd3';
+import c3 from 'c3';
 
-class Chart extends React.Component {
+export default class Chart extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -28,4 +28,3 @@ class Chart extends React.Component {
         );
     }
 }
-module.exports = Chart;

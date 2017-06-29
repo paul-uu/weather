@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react';
 
-class Button extends React.Component {
+export default class Button extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -15,7 +15,4 @@ class Button extends React.Component {
             </button>
         )
     }
-
 }
-
-module.exports = Button;

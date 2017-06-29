@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react';
 
-class Checkbox extends React.Component {
+export default class Checkbox extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -17,4 +17,3 @@ class Checkbox extends React.Component {
         )
     }
 }
-module.exports = Checkbox;

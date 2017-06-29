@@ -1,8 +1,8 @@
-var React = require('react');
-var LocationSearch = require('./LocationSearch');
-var Button = require('./Button');
+import React from 'react';
+import LocationSearch from './LocationSearch';
+import Button from './Button';
 
-class Header extends React.Component {
+export default class Header extends React.Component {
 
     constructor(props) {
         super(props);
@@ -50,5 +50,3 @@ class Header extends React.Component {
         );
     }
 }
-
-module.exports = Header;

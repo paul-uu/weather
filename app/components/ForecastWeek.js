@@ -1,8 +1,8 @@
-var React = require('react');
-var ForecastDay = require('./ForecastDay');
-var ForecastDetail = require('./ForecastDetail');
+import React from 'react';
+import ForecastDay from './ForecastDay';
+import ForecastDetail from './ForecastDetail';
 
-class ForecastWeek extends React.Component {
+export default class ForecastWeek extends React.Component {
 
     constructor(props) {
         super(props);
@@ -67,5 +67,3 @@ class ForecastWeek extends React.Component {
         );
     }
 }
-
-module.exports = ForecastWeek;

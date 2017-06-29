@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],	
       months = ['January','February','March','April','May','June','July','August','Spetember','October','November', 'December'];
@@ -7,7 +7,7 @@ const dateStyle = {
     float: 'left'
 };
 
-class ForecastDay extends React.Component {
+export default class ForecastDay extends React.Component {
 
     currentDayClick(day) {
         this.props.toggleDetailDay(day);
@@ -45,5 +45,3 @@ class ForecastDay extends React.Component {
         )
     }
 }
-
-module.exports = ForecastDay;

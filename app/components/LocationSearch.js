@@ -1,8 +1,8 @@
-var React = require('react');
-var Button = require('./Button');
-var TextInput = require('./TextInput');
+import React from 'react';
+import Button from './Button';
+import TextInput from './TextInput';
 
-class LocationSearch extends React.Component {
+export default class LocationSearch extends React.Component {
 
     constructor(props) {
         super(props);
@@ -36,5 +36,3 @@ class LocationSearch extends React.Component {
         );
     }
 }
-
-module.exports = LocationSearch;
