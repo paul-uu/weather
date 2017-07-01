@@ -47,7 +47,7 @@ export default class Header extends React.Component {
                         onClick={this.handleGeoLocation.bind(this)}
                         text={'Use Geolocation'} />
                 </div>
-                <h3>{this.props.location} for the next 10 days</h3>
+                <h3>{this.props.location} {this.props.headerMessage}</h3>
             </div>
         );
     }
