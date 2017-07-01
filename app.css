@@ -1,0 +1,138 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #666;
+  margin: 0 0;
+  padding: 0 0;
+  box-sizing: border-box; }
+
+.clear {
+  clear: both !important; }
+
+p.error_message {
+  text-align: center;
+  margin-top: 8%; }
+
+#reload {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer; }
+
+#placeholder {
+  text-align: center; }
+
+.weather_city {
+  text-align: center; }
+
+.weather_city > h3 {
+  margin-bottom: 0; }
+
+.controls {
+  text-align: center; }
+
+.show_all,
+.hide_all {
+  cursor: pointer;
+  font-size: 32px; }
+
+.hide_all {
+  margin-right: 15px; }
+
+.show_all {
+  margin-left: 15px; }
+
+/*  ----------------------------------------------------  */
+/*  Styling for each individual weather container by day  */
+.weather_item {
+  border-radius: 3px;
+  width: 10%;
+  min-height: 1px;
+  cursor: pointer;
+  position: relative;
+  float: left; }
+  .weather_item:hover {
+    background-color: #eee; }
+  .weather_item .weather_date {
+    float: left;
+    font-weight: 200;
+    font-size: 1.2em;
+    margin-bottom: .5em; }
+    .weather_item .weather_date .date {
+      white-space: nowrap;
+      font-size: 16px;
+      color: #999; }
+  .weather_item .weather_basic {
+    clear: both; }
+    .weather_item .weather_basic .weather_temp_max,
+    .weather_item .weather_basic .weather_temp_min {
+      display: inline-block;
+      font-weight: 100;
+      font-size: 2em; }
+    .weather_item .weather_basic .weather_temp_max {
+      color: #ff5700;
+      margin-right: 0.25em; }
+    .weather_item .weather_basic .weather_temp_min {
+      color: #00e2ff; }
+
+.weather_condition {
+  line-height: 1em;
+  min-height: 2em;
+  margin-bottom: .5em; }
+
+.weather_main {
+  position: absolute;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  top: 0;
+  left: 0; }
+
+.weather_main {
+  display: inline-block;
+  z-index: 10;
+  background-color: #eee;
+  border-left: 1px solid #eee; }
+
+.weather_main:hover {
+  background-color: #e8e8e8; }
+
+.weather_main.selected {
+  background-color: white; }
+
+.forecast_detail {
+  margin-top: 175px; }
+
+.detailHeader,
+.detailCheckboxes {
+  text-align: center; }
+
+@media (max-width: 991px) {
+  .weather_item {
+    border-top: 1px solid #666;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-radius: 0;
+    display: block;
+    width: 100%; }
+    .weather_item .weather_main {
+      position: relative;
+      border-left: 0; }
+    .weather_item .weather_date .date {
+      margin-right: 16px; }
+    .weather_item .weather_date .date,
+    .weather_item .weather_date .day {
+      font-size: 1.5em; }
+    .weather_item .weather_date br {
+      display: none; }
+    .weather_item .weather_date,
+    .weather_item .weather_basic {
+      float: none;
+      display: block;
+      font-size: 1.2em; }
+    .weather_item .weather_condition {
+      margin-bottom: 0;
+      min-height: 0; }
+    .weather_item .weather_temp_min, .weather_item .weather_temp_max {
+      display: block; }
+  .forecast_detail {
+    margin-top: 50px; } }
