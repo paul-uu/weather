@@ -28,10 +28,10 @@ export default class LocationSearch extends React.Component {
 
     render() {
         return (
-            <div className='locationSearch'>
+            <span className='locationSearch'>
                 <TextInput placeholder={'Zip Code'} onChange={this.handleInputChange.bind(this)} />
                 <Button text={'Search'} onClick={this.returnZipCode.bind(this)} />
-            </div>
+            </span>
         );
     }
 }

@@ -103,8 +103,7 @@ p.error_message {
 	margin-bottom: .5em;
 }
 
-.weather_main, 
-.weather_extra {
+.weather_main {
 	position: absolute;
 	padding: 10px 10px;
 	box-sizing: border-box;
@@ -126,24 +125,6 @@ p.error_message {
 	background-color: white;
 }
 
-.weather_extra {
-	display: inline-block;	
-	background-color: white;
-	z-index: 1;
-	font-size: 0.9em;
-	font-weight: 200;
-	position: absolute;
-	top: 0;
-	transition: top 0.5s;
-}
-.weather_extra.collapsed {
-	top: 0;
-}
-.weather_extra.expanded {
-	top: 155px;
-}
-
-
 .forecast_detail {
 	margin-top: 175px;
 }
@@ -159,19 +140,44 @@ p.error_message {
 		border-left: 0; border-right: 0; border-bottom: 0;
 		border-radius: 0;
 		display: block;
-		width: 98%;
-	}
-	.weather_main {
-		border-left: 0;
-	}
-	.weather_basic {
-		position: absolute;
-		left: 45%;
-	}
-	.weather_temp_min, .weather_temp_max {
-		display: block;
-	}
-	.weather_extra {
-		font-size: 1.25em;
+		width: 100%;
+	
+		.weather_main {
+			position: relative;
+			border-left: 0;
+		}
+		.weather_date {
+			.date {
+				margin-right: 16px;
+			}
+			.date,
+			.day {
+				font-size: 1.5em;
+			}
+			br {
+				display: none;
+			}
+		}
+
+		.weather_date,
+		.weather_basic {
+			float: none;
+			display: block;
+			font-size: 1.2em;
+		}
+
+		.weather_condition {
+			margin-bottom: 0;
+			min-height: 0;
+		}
+
+		.weather_temp_min, .weather_temp_max {
+			display: block;
+		}	
+
+		.forecast_detail {
+			margin-top: 50px;
+		}
+	
 	}
 }

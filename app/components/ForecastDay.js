@@ -25,7 +25,7 @@ export default class ForecastDay extends React.Component {
         return (
             <div className='weather_item' onClick={this.currentDayClick.bind( self, weather.date )}>
                 <div className={isSelected}>
-                    <div className='weather_date' style={dateStyle}>
+                    <div className='weather_date' >
                         <span className='date'>{date}</span><br />
                         <span className='day'>{day}</span>
                     </div>
@@ -34,12 +34,6 @@ export default class ForecastDay extends React.Component {
                         <div className='weather_temp_max'>{Math.round(weather.day.maxtemp_f)}</div>
                         <div className='weather_temp_min'>{Math.round(weather.day.mintemp_f)}</div>
                     </div>
-                </div>
-                <div className='weather_extra'>
-                    <div className='weather_humidity'>Humidity: {weather.day.avghumidity}</div>
-                    <div className='weather_visibility'>Visibility: {weather.day.avgvis_miles}</div>
-                    <div className='weather_wind_speed'>Wind Speed: {weather.day.windSpeed_mph}</div>
-                    <div className='weather_rain'>Precipitation: {weather.day.totalprecipin}</div>
                 </div>
             </div>
         )
