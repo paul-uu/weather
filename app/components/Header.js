@@ -1,4 +1,5 @@
 import React from 'react';
+import Noty from 'noty';
 import LocationSearch from './LocationSearch';
 import Button from './Button';
 
@@ -16,7 +17,16 @@ export default class Header extends React.Component {
 
         let self = this;
         if (!navigator.geolocation)
-            console.log('error: grolocation capabilities are not available');
+            new Noty({
+                type: 'warning',
+                layout: 'topCenter',
+                theme: 'mint',
+                text: 'Geolocatino capabilities are not available. Please enter a zip code',
+                timeout: 2500,
+                progressBar: true,
+                closeWith: 'click'
+            }).show();
+
         else {
             navigator.geolocation.getCurrentPosition(
                 success, 
@@ -33,7 +43,15 @@ export default class Header extends React.Component {
             self.props.getLocation(lat.toString() + ',' + lon.toString());
         }
         function error() {
-            console.log('error: geolocation error. Make sure that location sharing is enabled on your device!');
+            new Noty({
+                type: 'warning',
+                layout: 'topCenter',
+                theme: 'mint',
+                text: 'Unable to use geolocation. Make sure that locatin sharing is enabled on you device',
+                timeout: 2500,
+                progressBar: true,
+                closeWith: 'click'
+            }).show();        
         }           
     }
 

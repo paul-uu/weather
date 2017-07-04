@@ -1,4 +1,5 @@
 import React from 'react';
+import Noty from 'noty';
 import Button from './Button';
 import TextInput from './TextInput';
 
@@ -18,8 +19,20 @@ export default class LocationSearch extends React.Component {
     }
 
     isValidZipCode(zipCode) {
-        if ( zipCode.length === 5 && (typeof parseInt(zipCode, 10) === 'number') )
+        if ( zipCode && zipCode.length === 5 && (typeof parseInt(zipCode, 10) === 'number') ) {
             return true;
+        }
+        else {
+            new Noty({
+                type: 'warning',
+                layout: 'topCenter',
+                theme: 'mint',
+                text: 'Please enter a valid Zip Code',
+                timeout: 2500,
+                progressBar: true,
+                closeWith: 'click'
+            }).show();
+        }
     }
 
     handleInputChange(e) {
