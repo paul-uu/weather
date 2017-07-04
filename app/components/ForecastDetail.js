@@ -46,11 +46,6 @@ export default class ForecastDetail extends React.Component {
         }
     }
 
-    componentDidMount() {
-    }
-    componentDidUpdate() {
-    }
-
     handleCheckboxChange(e) {
         let el = e.target,
             val = el.value,
@@ -107,11 +102,11 @@ export default class ForecastDetail extends React.Component {
     render() {
 
         let self = this;
-        let hourlyWeather = self.props.detailWeather;
-        if (hourlyWeather) {
+
+        if (self.props.detailWeather) {
 
             let weatherPropertiesToShow = self.getWeatherPropertiesToShow(self.state.chartDataTypes);
-            let formattedData = this.formatWeatherDataForChart(self.props.detailWeather, weatherPropertiesToShow);
+            let formattedData = self.formatWeatherDataForChart(self.props.detailWeather, weatherPropertiesToShow);
 
             let chartDataTypesArray = [];
             for (let obj in self.state.chartDataTypes) {

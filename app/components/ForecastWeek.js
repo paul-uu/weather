@@ -39,20 +39,20 @@ export default class ForecastWeek extends React.Component {
     }
 
     render () {
-        let that = this;
-        let forecast = that.props.forecastArray || [];
-        let detailWeather = that.getDetailWeather( forecast, that.state.currentDetailDay );
+        let self = this,
+            forecast = self.props.forecastArray || [],
+            detailWeather = self.getDetailWeather( forecast, self.state.currentDetailDay );
         return (
             <div className="forecast">
                 <div className="forecast-week">
                     {
                         forecast.map(function(weather, id) { 
-                            let isSelectedDay = weather.date === that.state.currentDetailDay;
+                            let isSelectedDay = weather.date === self.state.currentDetailDay;
                             
                             return (<ForecastDay 
                                     key={id} 
                                     weather={weather}
-                                    toggleDetailDay={that.setDetailDay}
+                                    toggleDetailDay={self.setDetailDay}
                                     selected={isSelectedDay} />
                             )
                         })
@@ -61,7 +61,7 @@ export default class ForecastWeek extends React.Component {
                 </div>
 
                 <ForecastDetail 
-                    currentDetailDay={that.state.currentDetailDay}
+                    currentDetailDay={self.state.currentDetailDay}
                     detailWeather={detailWeather} />
             </div>
         );

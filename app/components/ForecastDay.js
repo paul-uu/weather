@@ -14,16 +14,16 @@ export default class ForecastDay extends React.Component {
     }
 
     render() {
-        let weather = this.props.weather;
-        let d = new Date(weather.date);
-        let day = days[d.getUTCDay()];
-        let date = months[d.getUTCMonth()] + ' ' + d.getUTCDate();
-        let self = this;
 
-        let isSelected = this.props.selected ? 'weather_main selected' : 'weather_main';
+        let self = this,
+            weather = self.props.weather,
+            d = new Date(weather.date),
+            day = days[d.getUTCDay()],
+            date = months[d.getUTCMonth()] + ' ' + d.getUTCDate(),
+            isSelected = self.props.selected ? 'weather_main selected' : 'weather_main';
 
         return (
-            <div className='weather_item' onClick={this.currentDayClick.bind( self, weather.date )}>
+            <div className='weather_item' onClick={self.currentDayClick.bind( self, weather.date )}>
                 <div className={isSelected}>
                     <div className='weather_date' >
                         <span className='date'>{date}</span><br />
