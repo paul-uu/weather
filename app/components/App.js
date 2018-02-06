@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import Header from './Header';
 import ForecastWeek from './ForecastWeek';
+import config from '../config';
 
 export default class App extends React.Component {
 
@@ -19,7 +20,7 @@ export default class App extends React.Component {
     returnWeatherData(location) {
 
         let self = this;
-        let url = 'https://api.apixu.com/v1/forecast.json?key=bbd73b10b32b41ccb1722924161012&q=' + location + '&days=10';
+        let url = `https://api.apixu.com/v1/forecast.json?key=${config.API_KEY}&q=${location}&days=10`;
         $.ajax({
             url: url,
             type: 'get',
