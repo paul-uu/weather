@@ -50,16 +50,19 @@ p.error_message {
 	margin-left: 15px;
 }
 
+
+.forecast-week {
+	display: flex;
+}
+
 /*  ----------------------------------------------------  */
 /*  Styling for each individual weather container by day  */
 .weather_item {
 	
 	border-radius: 3px;
-	width: 10%;
-	min-height: 1px;
 	cursor: pointer;
 	position: relative;
-	float: left;
+	flex: 1;
 
     &:hover {
         background-color: #eee;

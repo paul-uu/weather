@@ -10,7 +10,7 @@ export default class Header extends React.Component {
     }
 
     handleLocationSearch(zipCode) {
-        this.props.getLocation(zipCode);
+        this.props.setLocation(zipCode);
     }
 
     handleGeoLocation() {
@@ -40,7 +40,7 @@ export default class Header extends React.Component {
         function success(position) {
             let lat = position.coords.latitude,
                 lon = position.coords.longitude;
-            self.props.getLocation(lat.toString() + ',' + lon.toString());
+            self.props.setLocation(lat.toString() + ',' + lon.toString());
         }
         function error() {
             new Noty({
