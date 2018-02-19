@@ -7,9 +7,6 @@ import Noty from 'noty';
 export default class ForecaseContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      forecastArray: []
-    }
   }
 
   componentWillReceiveProps(nextProps) {   

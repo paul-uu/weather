@@ -9,7 +9,7 @@ export default class Checkbox extends React.Component {
       <label>
         <input 
           type='checkbox'
-          value={this.props.value} 
+          name={this.props.name}
           checked={this.props.checked}
           onChange={this.props.onChange} />
         {this.props.label}

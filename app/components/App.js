@@ -28,13 +28,15 @@ export default class App extends React.Component {
   }
 
   render() {
-    let headerMessage = this.state.forecastArray.length > 0 ? " for the next 10 days" : "Please enter a zip code, or use your current location";
+    let daysQty = this.state.forecastArray.length;
+    let headerMessage = daysQty > 0 ? ` for the next ${daysQty} days` : `Please enter a zip code or use you current location`;
     return (
       <div>
         <Header 
           setLocation={this.setLocation.bind(this)} 
           location={this.state.displayLocation} 
           headerMessage={headerMessage} />
+
         <ForecastContainer 
           location={this.state.location}
           forecastArray={this.state.forecastArray}

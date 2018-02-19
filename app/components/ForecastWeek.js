@@ -1,6 +1,8 @@
 import React from 'react';
 import ForecastDay from './ForecastDay';
-import ForecastDetail from './ForecastDetail';
+import ForecastDayDetail from './ForecastDayDetail';
+import ForecastWeekChart from './ForecastWeekChart';
+/* import ForecastDetail from './ForecastDetail'; */
 
 export default class ForecastWeek extends React.Component {
 
@@ -33,7 +35,7 @@ export default class ForecastWeek extends React.Component {
     if (forecast && date) {
       for (var i = 0; i < forecast.length; i++) {
         if (forecast[i]['date'] === date)
-          return forecast[i].hour;
+          return forecast[i].day;
       }
     }
   }
@@ -60,9 +62,15 @@ export default class ForecastWeek extends React.Component {
           <div className="clear"></div>
         </div>
 
-        <ForecastDetail 
-          currentDetailDay={self.state.currentDetailDay}
-          detailWeather={detailWeather} />
+        <ForecastDayDetail
+          selecteDay={self.state.currentDetailDay}
+          detailWeather={detailWeather}
+        />
+        <ForecastWeekChart
+          forecast={self.props.forecastArray}
+          selectedDay={self.state.currentDetailDay}
+        />
+
       </div>
     );
   }

@@ -7,10 +7,10 @@ export default class Chart extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.chartC3(this.props.detailWeather);
+    this.chartC3(this.props.weatherArray);
   }
   componentDidUpdate() {
-    this.chartC3(this.props.detailWeather);
+    this.chartC3(this.props.weatherArray);
   }
   chartC3(data) {
     data = data ? data : [];
