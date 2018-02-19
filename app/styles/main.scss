@@ -58,47 +58,47 @@ p.error_message {
 /*  ----------------------------------------------------  */
 /*  Styling for each individual weather container by day  */
 .weather_item {
-	
+
 	border-radius: 3px;
 	cursor: pointer;
 	position: relative;
 	flex: 1;
 
-    &:hover {
-        background-color: #eee;
-    }
+	&:hover {
+		background-color: #eee;
+	}
 
-    .weather_date {
-        float: left;
-        font-weight: 200;
-        font-size: 1.2em;
-        margin-bottom: .5em;
+	.weather_date {
+		float: left;
+		font-weight: 200;
+		font-size: 1.2em;
+		margin-bottom: .5em;
 
-        .date {
-            white-space: nowrap;
-            font-size: 16px;
-            color: #999;
-        }
-    }
+		.date {
+			white-space: nowrap;
+			font-size: 16px;
+			color: #999;
+		}
+	}
 
-    .weather_basic {
-        clear: both;
+	.weather_basic {
+		clear: both;
 
-        .weather_temp_max,
-        .weather_temp_min {
-            display: inline-block;
-            font-weight: 100;
-            font-size: 2em;
-        }
-        
-        .weather_temp_max {
-            color: $orange;
-            margin-right: 0.25em;
-        }
-        .weather_temp_min {
-            color: $blue;
-        }
-    }
+		.weather_temp_max,
+		.weather_temp_min {
+			display: inline-block;
+			font-weight: 100;
+			font-size: 2em;
+		}
+		
+		.weather_temp_max {
+			color: $orange;
+			margin-right: 0.25em;
+		}
+		.weather_temp_min {
+			color: $blue;
+		}
+	}
 }
 
 .weather_condition {
