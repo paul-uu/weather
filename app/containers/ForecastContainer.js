@@ -27,13 +27,13 @@ export default class ForecaseContainer extends React.Component {
         }.bind(self),
         error: function(xhr) {
           new Noty({
-              type: 'warning',
-              layout: 'topCenter',
-              theme: 'mint',
-              text: "Whoops, seems there's been an error while fetching your data",
-              timeout: 2500,
-              progressBar: true,
-              closeWith: 'click'
+            type: 'warning',
+            layout: 'topCenter',
+            theme: 'mint',
+            text: "Whoops, seems there's been an error while fetching your data",
+            timeout: 2500,
+            progressBar: true,
+            closeWith: 'click'
           }).show();
           console.log(xhr);
         }

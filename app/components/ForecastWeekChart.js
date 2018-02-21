@@ -84,7 +84,7 @@ export default class ForecastWeekChart extends React.Component {
   render() {
 
     let self = this;
-    if (self.props.forecast) {
+    if (self.props.forecast.length > 0) {
 
       let weatherPropertiesToShow = self.getWeatherPropertiesToShow(self.state.chartDataTypes);
       let formattedData = self.formatWeatherDataForChart(self.props.forecast, weatherPropertiesToShow);
@@ -95,12 +95,7 @@ export default class ForecastWeekChart extends React.Component {
 
       return (
         <div className='forecastWeekDetail'>
-  
-          <div className="forecastWeekDetail__header">
-            <span>hourly weather for </span>
-            <span>{self.props.selectedDay}</span>
-          </div>
-  
+          <div className="forecastWeekDetail__header">{self.props.forecast.length} Day Forecast</div>
           <div className='forecastWeekDetail__checkboxes'>
           {
             chartDataTypesArray.map(function(dataTypeObj, id) {

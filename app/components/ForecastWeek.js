@@ -44,6 +44,7 @@ export default class ForecastWeek extends React.Component {
     let self = this,
         forecast = self.props.forecastArray || [],
         detailWeather = self.getDetailWeather( forecast, self.state.currentDetailDay );
+
     return (
       <div className="forecast">
         <div className="forecast-week">
@@ -63,7 +64,7 @@ export default class ForecastWeek extends React.Component {
         </div>
 
         <ForecastDayDetail
-          selecteDay={self.state.currentDetailDay}
+          selectedDay={self.state.currentDetailDay}
           detailWeather={detailWeather}
         />
         <ForecastWeekChart
